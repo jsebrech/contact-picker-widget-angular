@@ -11,6 +11,10 @@
             [results]="searchResults"
             (search)="onSearch($event)"
             (select)="onSelect($event)">
+            <ng-template let-item="$implicit">
+                <span [innerHTML]="formatLabel(item)"></span>
+                <span *ngIf="differentiator" class="a-contact-picker__detail">{{item[differentiator]}}</span>
+            </ng-template>
         </aui-auto-complete>
     </div>
 </div>

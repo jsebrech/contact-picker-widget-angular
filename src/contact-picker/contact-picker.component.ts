@@ -10,7 +10,8 @@ import { AutoCompleteComponent } from '@acpaas-ui/auto-complete';
 
 @Component({
     selector: 'aui-contact-picker',
-    templateUrl: './contact-picker.component.html'
+    templateUrl: './contact-picker.component.html',
+    styleUrls: ['./contact-picker.component.css']
 })
 export class ContactPickerComponent implements OnInit {
 
@@ -28,6 +29,8 @@ export class ContactPickerComponent implements OnInit {
     @Input() minLength = 2;
     /** message to show when there are no hits */
     @Input() noDataMessage = 'Geen resultaat gevonden';
+    /** a value object property to show as differentiator (aside from name) */
+    @Input() differentiator = '';
     /** the value that is displayed */
     @Input() value: ContactPickerValue;
     /** the event fired when the value changes */
@@ -107,6 +110,13 @@ export class ContactPickerComponent implements OnInit {
         if (this.value && !this.searchResults.length) {
             this.searchResults = [this.value];
         }
+    }
+
+    public formatLabel(input: ContactPickerValue): string {
+        const search = this.autocomplete.query;
+        const inputString = input.name || input.id || '';
+        const regEx = new RegExp(search, 'ig');
+        return inputString.replace(regEx, (match) => '<strong>' + match + '</strong>');
     }
 }
 

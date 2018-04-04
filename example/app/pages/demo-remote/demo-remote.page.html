@@ -6,6 +6,7 @@
     <aui-contact-picker
       placeholder="kies een medewerker"
       [(value)]="picker2"
+      differentiator="userName"
       url="http://localhost:3000/api/medewerkers">
     </aui-contact-picker>
     <div *ngIf="picker2">Current value: 
@@ -18,6 +19,7 @@
     <aui-contact-picker
       placeholder="kies een antwerpenaar"
       [(value)]="picker1"
+      differentiator="id"
       url="http://localhost:3000/api/antwerpenaars">
     </aui-contact-picker>
     <div *ngIf="picker1">Current value: 
