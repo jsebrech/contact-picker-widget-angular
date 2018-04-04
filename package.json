@@ -40,7 +40,9 @@
     "@angular/common": "^5.0.0",
     "@angular/core": "^5.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@acpaas-ui/auto-complete": "^4.0.0"
+  },
   "devDependencies": {
     "@angular/animations": "^5.0.0",
     "@angular/cli": "1.5.4",

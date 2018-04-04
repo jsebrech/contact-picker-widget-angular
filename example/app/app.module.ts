@@ -1,19 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 
-import { TaggifyModule } from '../../src';
-
 import { AppComponent } from './app.component';
+import { ContactPickerModule } from '../../src';
+import { AppRoutingModule } from './app-routing.module';
+import { Pages } from './pages';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    TaggifyModule,
-  ],
   declarations: [
     AppComponent,
+    ...Pages
   ],
-  providers: [],
+  imports: [
+    BrowserModule,
+    ContactPickerModule,
+    HttpModule,
+    AppRoutingModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

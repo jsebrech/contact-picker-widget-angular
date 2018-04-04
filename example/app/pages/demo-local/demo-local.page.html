@@ -1,0 +1,23 @@
+<div class="inner home-page">
+    <h2>Contact Picker</h2>
+    <h4>Local Data</h4>
+    <p>Notable people from Antwerp 
+       (source: <a href="https://nl.wikipedia.org/wiki/Lijst_van_Antwerpenaars_(stad)">wikipedia</a>)
+    </p>
+    <p>
+      <aui-contact-picker
+        placeholder="kies een antwerpenaar" 
+        [data]="listOfPeople1"
+        [(value)]="picker1">
+      </aui-contact-picker>
+    </p>
+    <p *ngIf="picker1">Current value: {{picker1?.name}}</p>
+    <br>
+    <p>Fictional characters</p>
+    <aui-contact-picker
+      placeholder="kies een personage"
+      [(value)]="picker2"
+      [data]="listOfPeople2">
+    </aui-contact-picker>
+    <p *ngIf="picker2">Current value: {{picker2?.name}}</p>
+</div>

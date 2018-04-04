@@ -1,0 +1,16 @@
+<div class="a-input">
+    <div class="a-input__wrapper">
+        <aui-auto-complete 
+            [placeholder]="placeholder"
+            remote="true"
+            clearInvalid="true"
+            value="id"
+            label="name"
+            [noResultsText]="noDataMessage"
+            [ngModel]="value?.name"
+            [results]="searchResults"
+            (search)="onSearch($event)"
+            (select)="onSelect($event)">
+        </aui-auto-complete>
+    </div>
+</div>
