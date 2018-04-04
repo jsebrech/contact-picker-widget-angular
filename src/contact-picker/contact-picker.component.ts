@@ -7,13 +7,17 @@ import 'rxjs/add/operator/mergeMap';
 import { ContactPickerValue } from './contact-picker.value';
 import { ContactPickerService } from './contact-picker.service';
 import { AutoCompleteComponent } from '@acpaas-ui/auto-complete';
+import { ControlValueAccessor } from '@angular/forms';
 
 @Component({
     selector: 'aui-contact-picker',
     templateUrl: './contact-picker.component.html',
     styleUrls: ['./contact-picker.component.css']
 })
-export class ContactPickerComponent implements OnInit {
+export class ContactPickerComponent
+    // ControlValueAccessor as per
+    // https://blog.thoughtram.io/angular/2016/07/27/custom-form-controls-in-angular-2.html
+    implements OnInit, ControlValueAccessor {
 
     // see set data below
     private _data: ContactPickerValue[];
@@ -101,14 +105,8 @@ export class ContactPickerComponent implements OnInit {
         if (data instanceof Event) {
             // do nothing: we don't respond to text selection events
         } else {
-            this.changeValue(data as ContactPickerValue);
+            this.writeValue(data as ContactPickerValue);
         }
-    }
-
-    changeValue(value: ContactPickerValue) {
-        this.value = value as ContactPickerValue;
-        this.valueChange.emit(this.value);
-        this.resetSearchResults();
     }
 
     resetSearchResults() {
@@ -132,6 +130,25 @@ export class ContactPickerComponent implements OnInit {
         const regEx = new RegExp(search, 'ig');
         return inputString.replace(regEx, (match) => '<strong>' + match + '</strong>');
     }
+
+    // ControlValueAccessor interface
+
+    writeValue(value: ContactPickerValue|any) {
+        this.value = value as ContactPickerValue;
+        this.valueChange.emit(this.value);
+        if (this.propagateChange) {
+            this.propagateChange(this.value);
+        }
+        this.resetSearchResults();
+    }
+
+    propagateChange = (_: any) => {};
+
+    registerOnChange(fn) {
+        this.propagateChange = fn;
+    }
+
+    registerOnTouched() {}
 
 }
 
