@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Http } from '@angular/http';
 
-import { ContactPickerValue } from '../../../../src';
+import { ContactPickerValue, ContactPickerComponent } from '../../../../src';
 
 @Component({
     selector: 'app-demo-local',
@@ -13,6 +13,9 @@ export class DemoLocalPage implements OnInit {
 
   // person in second field
   picker2: ContactPickerValue;
+
+  // picker 1 component
+  @ViewChild('picker1cmp') picker1Cmp: ContactPickerComponent;
 
   listOfPeople1: ContactPickerValue[] = [];
 
@@ -37,5 +40,9 @@ export class DemoLocalPage implements OnInit {
           return { id: (counter++).toString(), name: v } as ContactPickerValue;
         });
       });
+  }
+
+  onPicker1BtnClick() {
+    this.picker1Cmp.focus();
   }
 }

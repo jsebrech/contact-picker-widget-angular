@@ -21,15 +21,15 @@ Component todo:
 - [x] Betere demo app
 - [x] Extra differentiator in label
 https://acpaas-ui.digipolis.be/ui-components/selectable-list
+- [x] Allow focusing field programmatically
 - [ ] ngModel binding support
 http://almerosteyn.com/2016/04/linkup-custom-control-to-ngcontrol-ngmodel
 - [ ] Unit tests
-- [ ] Zoeken op differentiator (bvb EX nummer)
-- [ ] Allow focusing field programmatically
 
 BFF todo:
 
 - [ ] BFF: proper structure
 - [ ] BFF: swagger example json
 - [ ] BFF: Zoek binnen team (business roles engine)
+- [ ] BFF: Zoeken op differentiator (bvb EX nummer)
 --> Postponed tot A-Todo ontwikkeling

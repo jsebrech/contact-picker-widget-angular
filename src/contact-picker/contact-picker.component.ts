@@ -1,4 +1,4 @@
-import { Input, Component, OnInit, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Input, Component, OnInit, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import 'rxjs/add/operator/debounceTime';
@@ -58,7 +58,21 @@ export class ContactPickerComponent implements OnInit {
     /** the autocomplete component */
     @ViewChild(AutoCompleteComponent) autocomplete: AutoCompleteComponent;
 
-    constructor(private personPickerService: ContactPickerService) {}
+    constructor(
+        private personPickerService: ContactPickerService,
+        private element: ElementRef
+    ) {}
+
+    /** Set the focus in the text field. */
+    public focus() {
+        const nativeEl = this.element.nativeElement;
+        if (nativeEl && nativeEl.querySelector) {
+            const input = nativeEl.querySelector('input[type=text]');
+            if (input) {
+                input.select();
+            }
+        }
+    }
 
     ngOnInit() {
         this.resetSearchResults();
@@ -112,12 +126,13 @@ export class ContactPickerComponent implements OnInit {
         }
     }
 
-    public formatLabel(input: ContactPickerValue): string {
+    formatLabel(input: ContactPickerValue): string {
         const search = this.autocomplete.query;
         const inputString = input.name || input.id || '';
         const regEx = new RegExp(search, 'ig');
         return inputString.replace(regEx, (match) => '<strong>' + match + '</strong>');
     }
+
 }
 
 // auto-complete component does not support duplicate labels,
