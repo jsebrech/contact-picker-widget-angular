@@ -23,8 +23,9 @@ Component todo:
 https://acpaas-ui.digipolis.be/ui-components/selectable-list
 - [x] Allow focusing field programmatically
 - [x] ngModel binding support
-http://almerosteyn.com/2016/04/linkup-custom-control-to-ngcontrol-ngmodel
-- [ ] Unit tests
+https://blog.thoughtram.io/angular/2016/07/27/custom-form-controls-in-angular-2.html
+- [x] Unit tests
+- [ ] Readme & contributing & license
 
 BFF todo:
 

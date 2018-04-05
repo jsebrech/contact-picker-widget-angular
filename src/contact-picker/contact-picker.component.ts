@@ -37,6 +37,8 @@ export class ContactPickerComponent
     @Input() differentiator = '';
     /** the value that is displayed */
     @Input() value: ContactPickerValue;
+    /** how long to buffer keystrokes before requesting search results */
+    @Input() bufferInputMs = 500;
     /** the event fired when the value changes */
     @Output() valueChange = new EventEmitter<ContactPickerValue>();
 
@@ -67,7 +69,7 @@ export class ContactPickerComponent
         private element: ElementRef
     ) {}
 
-    /** Set the focus in the text field. */
+    /** Set the focus in the text field, selecting all text. */
     public focus() {
         const nativeEl = this.element.nativeElement;
         if (nativeEl && nativeEl.querySelector) {
@@ -85,9 +87,10 @@ export class ContactPickerComponent
         Observable.create((observer) => {
             this.searchChange$ = observer;
         })
-            .debounceTime(500)
+            .debounceTime(this.bufferInputMs)
             .mergeMap((search) =>
-                this.personPickerService.getPeopleByQuery(this.data || this.url, search))
+                this.personPickerService.getPeopleByQuery(this.data || this.url, search)
+            )
             .subscribe((results) => {
                 this.searchResults = withUniqueNames(results);
             });
