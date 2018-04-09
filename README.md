@@ -1,6 +1,6 @@
 # Contact Picker Smart Widget UI (Angular)
 
-This is the Angular 5+ UI for a Smart Widget implementing a picker field to choose a person from a list of contacts. It is matched by a [corresponding back-end service](http://example.com/TODO) which is needed when running it in remote mode. A default implementation for selecting people from [CRS Medewerker](https://acpaas.digipolis.be/nl/product/crs-medewerker) is provided.
+This is the Angular 5+ UI for a Smart Widget implementing a picker field to choose a person from a list of contacts. It is matched by a [corresponding back-end service](https://github.com/jsebrech/contact-picker-service-nodejs) which is needed when running it in remote mode. A default implementation for selecting people from [CRS Medewerker](https://acpaas.digipolis.be/nl/product/crs-medewerker) is provided.
 
 ![screenshot](example.png)
 
@@ -11,7 +11,7 @@ There is a demo app, see below for instructions on running it.
 ### Installing
 
 ```
-$ npm install @acpaas-ui-widgets/contact-picker-widget-angular
+$ npm install aui-contact-picker-widget-angular
 ```
 
 ### Local mode
@@ -91,7 +91,7 @@ $ npm start
 
 Browse to [localhost:4200](http://localhost:4200)
 
-To use the remote page, you will need to have also started [the backing service](http://example.com/TODO).
+To use the remote page, you will need to have also started [the backing service](https://github.com/jsebrech/contact-picker-service-nodejs).
 
 ## Contributing
 

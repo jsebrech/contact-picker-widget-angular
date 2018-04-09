@@ -1,5 +1,5 @@
 {
-  "name": "contact-picker-widget-angular",
+  "name": "aui-contact-picker-widget-angular",
   "description": "Contact Picker Smart Widget UI (Angular)",
   "author": {
     "name": "Joeri Sebrechts",
@@ -11,7 +11,7 @@
   "scripts": {
     "start": "ng serve --aot",
     "build": "ng-packagr -p ng-package.json",
-    "build-ghpages": "ng build --base-href \"https://digipolisantwerp.github.io/contact-picker-widget-angular/\" --output-path \"dist-ghpages\"",
+    "build-ghpages": "ng build --base-href \"https://jsebrech.github.io/contact-picker-widget-angular/\" --output-path \"dist-ghpages\"",
     "test": "npm run lint && ng test --watch false --code-coverage",
     "test-watch": "ng test --code-coverage",
     "e2e": "ng e2e",
@@ -20,12 +20,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/digipolisantwerp/contact-picker-widget-angular.git"
+    "url": "git+https://github.com/jsebrech/contact-picker-widget-angular.git"
   },
   "bugs": {
-    "url": "https://github.com/digipolisantwerp/contact-picker-widget-angular/issues"
+    "url": "https://github.com/jsebrech/contact-picker-widget-angular/issues"
   },
-  "homepage": "https://github.com/digipolisantwerp/contact-picker-widget-angular#readme",
+  "homepage": "https://github.com/jsebrech/contact-picker-widget-angular#readme",
   "keywords": [
     "angular",
     "library",
