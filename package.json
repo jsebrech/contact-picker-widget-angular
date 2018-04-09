@@ -34,7 +34,7 @@
     "angular-cli",
     "ng-packagr"
   ],
-  "private": false,
+  "private": true,
   "peerDependencies": {
     "@angular/common": "^5.0.0",
     "@angular/core": "^5.0.0"
@@ -78,6 +78,6 @@
     "zone.js": "^0.8.14"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://nexusrepo.antwerpen.be/repository/npm-private"
   }
 }
