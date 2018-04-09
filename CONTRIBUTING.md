@@ -52,6 +52,8 @@ Commands:
 
   `$ npm test`
 
+This repo is based on the [Angular Library Starter Kit](https://github.com/zurfyx/angular-library-starter-kit). See its documentation for more details (such as how to write tests).
+
 ### Submitting Changes
 
 Please send us your changes as a GitHub pull request.
