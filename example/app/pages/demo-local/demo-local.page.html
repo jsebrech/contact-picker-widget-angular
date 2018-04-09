@@ -12,7 +12,7 @@
       </aui-contact-picker>
       <button type="button" (click)="onPicker1BtnClick()">Focus</button>
     </p>
-    <p *ngIf="picker1">Current value: {{picker1?.name}}</p>
+    <p *ngIf="picker1">Current value: {{ picker1?.name }}</p>
     <br>
     <p>Fictional characters</p>
     <aui-contact-picker
@@ -20,5 +20,5 @@
       [(value)]="picker2"
       [data]="listOfPeople2">
     </aui-contact-picker>
-    <p *ngIf="picker2">Current value: {{picker2?.name}}</p>
+    <p *ngIf="picker2">Current value: {{ picker2?.name }}</p>
 </div>

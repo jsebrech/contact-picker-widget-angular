@@ -13,8 +13,8 @@
     "start": "ng serve --aot",
     "build": "ng-packagr -p ng-package.json",
     "build-ghpages": "ng build --base-href \"https://zurfyx.github.io/angular-library-starter-kit/\" --output-path \"dist-ghpages\"",
-    "test": "npm run lint && ng test --watch false",
-    "test-watch": "ng test",
+    "test": "npm run lint && ng test --watch false --code-coverage",
+    "test-watch": "ng test --code-coverage",
     "e2e": "ng e2e",
     "e2e-watch": "watch \"ng e2e -s false\" src e2e --wait=1",
     "lint": "ng lint"

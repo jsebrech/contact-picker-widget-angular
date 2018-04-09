@@ -17,6 +17,16 @@ describe('ContactPickerComponent', () => {
         }
     }
 
+    const provideTestValues = (count: number = 1) => {
+        testValues = [];
+        for (let i = 0; i < count; i++) {
+            testValues.push({
+                id: 'test' + i,
+                name: 'test'
+            });
+        }
+    };
+
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [ContactPickerModule],
@@ -36,16 +46,6 @@ describe('ContactPickerComponent', () => {
             document.body.removeChild(element);
         }
     });
-
-    const provideTestValues = (count: number = 1) => {
-        testValues = [];
-        for (let i = 0; i < count; i++) {
-            testValues.push({
-                id: 'test' + i,
-                name: 'test'
-            });
-        }
-    };
 
     it('should show the list by default for few items', () => {
         comp.data = testValues;
@@ -93,8 +93,9 @@ describe('ContactPickerComponent', () => {
         input.dispatchEvent(new Event('input'));
         fixture.detectChanges();
         setTimeout(() => {
-            expect(comp.searchResults).toEqual(testValues);
-            expect(testValues[1].name).not.toEqual(testValues[0].name);
+            expect(comp.searchResults).not.toBeNull();
+            expect(comp.searchResults.length).toEqual(2);
+            expect(comp.searchResults[1].name).not.toEqual(comp.searchResults[0].name);
             done();
         }, 10);
     });

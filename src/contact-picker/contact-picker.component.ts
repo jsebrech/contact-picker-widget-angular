@@ -8,6 +8,7 @@ import { ContactPickerValue } from './contact-picker.value';
 import { ContactPickerService } from './contact-picker.service';
 import { AutoCompleteComponent } from '@acpaas-ui/auto-complete';
 import { ControlValueAccessor } from '@angular/forms';
+import withUniqueNames from './unique-names';
 
 @Component({
     selector: 'aui-contact-picker',
@@ -40,7 +41,8 @@ export class ContactPickerComponent
     /** how long to buffer keystrokes before requesting search results */
     @Input() bufferInputMs = 500;
     /** the event fired when the value changes */
-    @Output() valueChange = new EventEmitter<ContactPickerValue>();
+    @Output() valueChange: EventEmitter<ContactPickerValue> =
+        new EventEmitter<ContactPickerValue>();
 
     /**
      * A set of fixed data to look through (instead of querying the url)
@@ -154,19 +156,3 @@ export class ContactPickerComponent
     registerOnTouched() {}
 
 }
-
-// auto-complete component does not support duplicate labels,
-// fix this by ensuring every name is unique
-const withUniqueNames =
-    (items: ContactPickerValue[]): ContactPickerValue[] => {
-        const counts = {};
-        items.forEach((item) => {
-            if (!counts[item.name]) {
-                counts[item.name] = 0;
-            }
-            if (++counts[item.name] > 1) {
-                item.name += ' (' + (item.userName || counts[item.name]) + ')';
-            }
-        });
-        return items;
-    };

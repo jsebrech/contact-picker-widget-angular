@@ -1,131 +1,104 @@
-# Angular 5 Library Starter Kit
+# Contact Picker Smart Widget UI (Angular)
 
-[![npm Version](https://img.shields.io/npm/v/angular-library-starter-kit.svg)](https://www.npmjs.com/package/angular-library-starter-kit)
-[![Build Status](https://travis-ci.org/zurfyx/angular-library-starter-kit.svg?branch=master)](https://travis-ci.org/zurfyx/angular-library-starter-kit)
+This is the Angular 5+ UI for a Smart Widget implementing a picker field to choose a person from a list of contacts. It is matched by a [corresponding back-end service](http://example.com/TODO) which is needed when running it in remote mode. A default implementation for selecting people from [CRS Medewerker](https://acpaas.digipolis.be/nl/product/crs-medewerker) is provided.
 
-> Angular 5 Library Starter Kit based on Angular-CLI.
+![screenshot](example.png)
 
-## What you get out of the box
+There is a demo app, see below for instructions on running it.
 
-**A NPM library** such as:
+## How to use
 
-[npmjs.com/package/angular-library-starter-kit](https://www.npmjs.com/package/angular-library-starter-kit)
-
-Which can be installed and imported as easy as `npm install your-library-name` and `import { MyModule } from 'your-library-name'`
-
-A **demo page** such as:
-
-[zurfyx.github.io/angular-library-starter-kit](https://zurfyx.github.io/angular-library-starter-kit/)
-
-## Features
-
-- Based on [angular-cli](https://github.com/angular/angular-cli)
-- Compatibility with Angular CLI, Webpack and SystemJS (built with [ng-packgr](https://github.com/dherges/ng-packagr))
-- Demo project (watch your library result as you develop)
-- Angular tests & E2E tests
-- Travis CI autodeploy to NPM
-- Travis CI demo autodeploy to GitHub Pages
-
-## Getting started
+### Installing
 
 ```
-git clone https://github.com/zurfyx/angular-library-start-kit
-npm install
-npm start
+$ npm install @acpaas-ui-widgets/contact-picker-widget-angular
 ```
 
-**Write your package metadata**
+### Local mode
 
-Make this library yours. Edit `package.json`, `.angular-cli.json` and `.travis.yml` and replace all ocurrences of `angular-library-starter-kit` with `your-module-name` (make sure it doesn't exist on [NPM](http://npmjs.com/) yet).
+In this mode, the data backing the picker is passed from the surrounding application code instead of fetched from a remote back-end.
 
-For the `package.json -> build-gh-pages` make sure to change `zurfyx` with your GitHub name or organization name. It will be used to later deploy your demo page onto GitHub pages.
-
-Same thing has to be done with `.travis.yml -> after_sucess`. We'll get into secure tokens in [Setting up Continuous Integration](#setting-up-continuous-integration).
-
-**Write your module**
-
-Edit `src/` with your library contents. The current `taggify.module.ts`, `taggify.pipe.ts`, `taggify.pipe.spec.ts` and `index.ts` should be edited with your module stuff.
-
-Everything you want the target users to be able to import directly should be added into `index.ts`. Remember that shared components or pipes should be written both into `declarations` and `exports` when defining your module.
-
-**Write your module demo**
-
-Edit `example/app` files just like if it was a normal `angular-cli` site. You might want to make use of `import { YourModule } from '../../src'` at some point to proof that your library works as expected.
-
-**Test your module**
-
-You can write both `e2e` test over your demo site, and unit tests on either the `src` and `example/app`.
-
-You might want to check `e2e/app.e2e-spec.ts` and `src/taggify.pipe.spec.ts` as examples.
-
-**Upload your module onto NPM**
-
-This process can be done automatically with Travis CI. See [Autodeploy to NPM](#autodeploy-to-npm).
+In your template:
 
 ```
-npm run build
+<aui-contact-picker
+    [data]="listOfPeople"
+    [(value)]="person">
+</aui-contact-picker>
 ```
 
-Browser into the `dist/` folder, where the result is stored and publish it into NPM.
+In the component code:
 
 ```
-cd dist
-npm publish
+class YourComponent {
+
+    // you can assign an initial value here
+    person: ContactPickerValue;
+
+    listOfPeople: ContactPickerValue[] = [
+        { id: '0', name: 'Abraham Ortelius', ... },
+        ...
+    ];
+
+    ...
+}   
 ```
 
-Your module should now be up and ready!
+Every value in the backing list must have a unique id. If names can be the same it is recommended to use a differentiator as described below.
 
-## Folder structure
+Supported attributes:
 
-For the most part, the folder structure is identical to angular-cli's one.
+- **data**: An array of value objects to use as the backing store
+- **value**: The current value of the picker, represented as a value object
+- **placeholder**: specify the text to show in an empty field
+- **noDataMessage**: the text shown in the list when there are no matching results
+- **differentiator**: a field from the backing value object to be displayed as a *tag* on the right side of the list items, to help the user discern the difference between multiple matches with the same name.
 
-```
-|- example/app Your demo application (GH pages)
-|- src All your library source code, which will get packaged and distributed.
-```
+    `<aui-contact-picker differentiator="userName" ...`
+    ![differentiator example](example-differentiator.png)
 
-## Setting up Continuous Integration
+Events:
 
-While you can use any CI of your choice, **Travis CI** is already set up to do the demo deployment onto GitHub Pages and library into NPM for you.
+- **valueChange**: triggers when the current value is changed (or cleared)
 
-Read over [Write your package metadata](#write-your-package-metadata) first, if you haven't already.
+### Remote mode
 
-First of all, activate Travis on your GitHub repository. You can do so on your [Travis profile](https://travis-ci.org/profile/).
-
-### Autodeploy to GitHub Pages
-
-In order to deploy to GitHub Pages we need a GitHub token of yours.
-
-Generate a token [here](https://github.com/settings/tokens/new). Scopes: [x] repo.
-
-Encrypt the token. On your source code folder run the following command:
+In this mode, the picker is backed by a remote service queried for results matching what the user types.
 
 ```
-travis encrypt GH_TOKEN=your_token_here
+<aui-contact-picker
+    [(value)]="person"
+    url="/api/people">
+</aui-contact-picker>
 ```
 
-The result should be copy-pasted into `env -> global -> secure`.
+Additional attributes:
+- **url**: the URL of the back-end service feeding this widget
+- **bufferInputMs**: how long to buffer keystrokes before fetching remote results
 
-### Autodeploy to NPM
+The backing service implements the following protocol:
 
-A similar thing to GitHub Pages can be done with NPM.
+- GET /path/to/endpoint?search=...
+- search = the text that the user typed on which to match
+- result = JSON-encoded array of [ContactPickerValue](src/contact-picker/contact-picker.value.ts) objects
 
-Generate a token with `npm token create`.
-
-Encrypt the token. On your source code folder run the following command:
+## Run the demo app
 
 ```
-travis encrypt your_token_here
+$ npm install
+$ npm start
 ```
 
-The result should be copy-pasted into `deploy -> api_key -> secure`.
+Browse to [localhost:4200](http://localhost:4200)
 
-## Built with Angular Library Starter Kit
+To use the remote page, you will need to have also started [the backing service](http://example.com/TODO).
 
-- [angular-custom-modal](https://github.com/zurfyx/angular-custom-modal)
-- [angular-custom-dropdown](https://github.com/zurfyx/angular-custom-dropdown)
-- [angular-contents](https://github.com/zurfyx/angular-contents)
+## Contributing
+
+We welcome your bug reports and pull requests.
+
+Please see our [contribution guide](CONTRIBUTING.md).
 
 ## License
 
-MIT © [Gerard Rovira Sánchez](//zurfyx.com)
+This project is published under the [MIT license](LICENSE.md).
