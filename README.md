@@ -10,8 +10,11 @@ There is a demo app, see below for instructions on running it.
 
 ### Installing
 
+Copy the .npmrc file from this repo to your local repo to set up the link to nexusrepo.antwerpen.be npm repository.
+
+Then run:
 ```
-$ npm install aui-contact-picker-widget-angular
+$ npm install @acpaas-ui/contact-picker-widget-angular
 ```
 
 ### Local mode
@@ -83,6 +86,8 @@ The backing service implements the following protocol:
 - result = JSON-encoded array of [ContactPickerValue](src/contact-picker/contact-picker.value.ts) objects
 
 ## Run the demo app
+
+Set up the .npmrc (see above), then run:
 
 ```
 $ npm install

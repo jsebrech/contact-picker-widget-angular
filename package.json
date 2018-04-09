@@ -1,5 +1,5 @@
 {
-  "name": "aui-contact-picker-widget-angular",
+  "name": "@acpaas-ui/contact-picker-widget-angular",
   "description": "Contact Picker Smart Widget UI (Angular)",
   "author": {
     "name": "Joeri Sebrechts",
