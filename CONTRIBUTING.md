@@ -32,25 +32,25 @@ Before contributing code, you should be aware of the following:
 
 ### Building and Testing
 
-`$ npm install`
+`> npm install`
 
 Commands:
 
 - Start the demo app
 
-  `$ npm start`
+  `> npm start`
 
   To use the remote page you also need to start the [backing service](http://example.com/TODO).
 
 - Run the tests (continously)
-  
-  `$ npm run test-watch`
+
+  `> npm run test-watch`
 
   Code coverage reports are output to the `./coverage` folder.
 
 - Lint and test (once)
 
-  `$ npm test`
+  `> npm test`
 
 This repo is based on the [Angular Library Starter Kit](https://github.com/zurfyx/angular-library-starter-kit). See its documentation for more details (such as how to write tests).
 

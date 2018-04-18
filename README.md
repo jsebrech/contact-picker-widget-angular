@@ -23,7 +23,7 @@ In this mode, the data backing the picker is passed from the surrounding applica
 
 In your template:
 
-```
+```html
 <aui-contact-picker
     [data]="listOfPeople"
     [(value)]="person">
@@ -32,7 +32,7 @@ In your template:
 
 In the component code:
 
-```
+```ts
 class YourComponent {
 
     // you can assign an initial value here
@@ -44,7 +44,7 @@ class YourComponent {
     ];
 
     ...
-}   
+}
 ```
 
 Every value in the backing list must have a unique id. If names can be the same it is recommended to use a differentiator as described below.
@@ -68,7 +68,7 @@ Events:
 
 In this mode, the picker is backed by a remote service queried for results matching what the user types.
 
-```
+```html
 <aui-contact-picker
     [(value)]="person"
     url="/api/people">
@@ -89,9 +89,9 @@ The backing service implements the following protocol:
 
 Set up the .npmrc (see above), then run:
 
-```
-$ npm install
-$ npm start
+```sh
+> npm install
+> npm start
 ```
 
 Browse to [localhost:4200](http://localhost:4200)
