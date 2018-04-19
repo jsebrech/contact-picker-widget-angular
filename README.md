@@ -96,7 +96,7 @@ Set up the .npmrc (see above), then run:
 
 Browse to [localhost:4200](http://localhost:4200)
 
-To use the remote page, you will need to have also started [the backing service](https://github.com/jsebrech/contact-picker-service-nodejs).
+To use the remote page, you will need to have also started [the backing service](https://github.com/digipolisantwerp/contact-picker_service_nodejs).
 
 ## Contributing
 

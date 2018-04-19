@@ -16,7 +16,8 @@
     "test-watch": "ng test --code-coverage",
     "e2e": "ng e2e",
     "e2e-watch": "watch \"ng e2e -s false\" src e2e --wait=1",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
