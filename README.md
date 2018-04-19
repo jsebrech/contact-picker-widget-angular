@@ -1,6 +1,6 @@
 # Contact Picker Smart Widget UI (Angular)
 
-This is the Angular 5+ UI for a Smart Widget implementing a picker field to choose a person from a list of contacts. It is matched by a [corresponding back-end service](https://github.com/jsebrech/contact-picker-service-nodejs) which is needed when running it in remote mode. A default implementation for selecting people from [CRS Medewerker](https://acpaas.digipolis.be/nl/product/crs-medewerker) is provided.
+This is the Angular 5+ UI for a Smart Widget implementing a picker field to choose a person from a list of contacts. It is matched by a [corresponding back-end service](https://github.com/digipolisantwerp/contact-picker_service_nodejs) which is needed when running it in remote mode. A default implementation for selecting people from [CRS Medewerker](https://acpaas.digipolis.be/nl/product/crs-medewerker) is provided.
 
 ![screenshot](example.png)
 
