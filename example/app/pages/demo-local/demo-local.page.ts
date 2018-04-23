@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 import { ContactPickerValue, ContactPickerComponent } from '../../../../src';
 
@@ -23,20 +23,20 @@ export class DemoLocalPage implements OnInit {
 
     title = 'app';
 
-    constructor(private http: Http) {}
+    constructor(private http: HttpClient) {}
 
     ngOnInit() {
         this.http.get('./assets/antwerpenaars.json')
           .subscribe(response => {
             let counter = 0;
-            this.listOfPeople1 = response.json().map(v => {
+            this.listOfPeople1 = (response as Array<any>).map(v => {
                 return { id: (counter++).toString(), name: v } as ContactPickerValue;
             });
         });
         this.http.get('./assets/suskeenwiske.json')
-          .subscribe(response => {
+          .subscribe((response: any) => {
             let counter = 0;
-            this.listOfPeople2 = response.json().map(v => {
+            this.listOfPeople2 = (response as Array<any>).map(v => {
                 return { id: (counter++).toString(), name: v } as ContactPickerValue;
             });
         });
