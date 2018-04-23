@@ -4,24 +4,24 @@
 
     <p>/api/medewerkers</p>
     <aui-contact-picker
-      placeholder="kies een medewerker"
-      [(value)]="picker2"
-      differentiator="userName"
-      url="http://localhost:3000/api/medewerkers">
+        placeholder="kies een medewerker"
+        [(value)]="picker2"
+        differentiator="userName"
+        url="http://localhost:3000/api/medewerkers">
     </aui-contact-picker>
     <div *ngIf="picker2">Current value: 
-      <pre>{{ picker2 | json }}</pre>
+        <pre>{{ picker2 | json }}</pre>
     </div>
 
     <br>
 
     <p>/api/antwerpenaars</p>
     <aui-contact-picker
-      placeholder="kies een antwerpenaar"
-      [(value)]="picker1"
-      url="http://localhost:3000/api/antwerpenaars">
+        placeholder="kies een antwerpenaar"
+        [(value)]="picker1"
+        url="http://localhost:3000/api/antwerpenaars">
     </aui-contact-picker>
     <div *ngIf="picker1">Current value: 
-      <pre>{{ picker1 | json }}</pre>
+        <pre>{{ picker1 | json }}</pre>
     </div>
 </div>

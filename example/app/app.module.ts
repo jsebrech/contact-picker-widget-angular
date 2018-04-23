@@ -8,16 +8,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { Pages } from './pages';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ...Pages
-  ],
-  imports: [
-    BrowserModule,
-    ContactPickerModule,
-    HttpModule,
-    AppRoutingModule
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        ...Pages
+    ],
+    imports: [
+        BrowserModule,
+        ContactPickerModule,
+        HttpModule,
+        AppRoutingModule
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

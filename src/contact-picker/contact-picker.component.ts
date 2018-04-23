@@ -119,7 +119,7 @@ export class ContactPickerComponent
         }
     }
 
-    private onSearch(searchString: string) {
+    public onSearch(searchString: string) {
         if (searchString.length >= this.minLength) {
             this.searchChange$.next(searchString);
         } else {
@@ -127,7 +127,7 @@ export class ContactPickerComponent
         }
     }
 
-    private onSelect(data: Event | ContactPickerValue) {
+    public onSelect(data: Event | ContactPickerValue) {
         if (data instanceof Event) {
             // do nothing: we don't respond to text selection events
         } else {
