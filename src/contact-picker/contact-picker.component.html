@@ -1,4 +1,4 @@
-<div class="a-input">
+<div class="a-input m-contact-picker">
     <div class="a-input__wrapper">
         <aui-auto-complete 
             [placeholder]="placeholder"
@@ -13,7 +13,7 @@
             (select)="onSelect($event)">
             <ng-template let-item>
                 <span [innerHTML]="formatLabel(item)"></span>
-                <span *ngIf="differentiator" class="a-contact-picker__detail">{{ item[differentiator] }}</span>
+                <span *ngIf="differentiator" class="m-contact-picker__detail">{{ item[differentiator] }}</span>
             </ng-template>
         </aui-auto-complete>
     </div>
