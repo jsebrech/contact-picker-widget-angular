@@ -1,13 +1,13 @@
 <div class="a-input m-contact-picker">
     <div class="a-input__wrapper">
         <aui-auto-complete 
-            [placeholder]="placeholder"
             remote="true"
             clearInvalid="true"
             value="id"
             label="name"
-            [noResultsText]="noDataMessage"
             [ngModel]="value?.name"
+            [placeholder]="placeholder"
+            [noResultsText]="noDataMessage"
             [results]="searchResults"
             (search)="onSearch($event)"
             (select)="onSelect($event)">

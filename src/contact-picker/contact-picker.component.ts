@@ -1,13 +1,13 @@
 import { Input, Component, OnInit, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/mergeMap';
 
+import { AutoCompleteComponent } from '@acpaas-ui/auto-complete';
 import { ContactPickerValue } from './contact-picker.value';
 import { ContactPickerService } from './contact-picker.service';
-import { AutoCompleteComponent } from '@acpaas-ui/auto-complete';
-import { ControlValueAccessor } from '@angular/forms';
 import withUniqueNames from './unique-names';
 
 @Component({
@@ -27,44 +27,49 @@ export class ContactPickerComponent
      * The URL to the BFF.
      * Must specify either this or the data property.
      */
-    @Input() url;
+    @Input() public url;
     /** what to show in the input field when blank */
-    @Input() placeholder = '';
+    @Input() public placeholder = '';
     /** minimum number of characters typed before search is triggered */
-    @Input() minLength = 2;
+    @Input() public minLength = 2;
     /** message to show when there are no hits */
-    @Input() noDataMessage = 'Geen resultaat gevonden';
+    @Input() public noDataMessage = 'Geen resultaat gevonden';
     /** a value object property to show as differentiator (aside from name) */
-    @Input() differentiator = '';
+    @Input() public differentiator = '';
     /** the value that is displayed */
-    @Input() value: ContactPickerValue;
+    @Input() public value: ContactPickerValue;
     /** how long to buffer keystrokes before requesting search results */
-    @Input() bufferInputMs = 500;
+    @Input() public bufferInputMs = 500;
     /** the event fired when the value changes */
-    @Output() valueChange: EventEmitter<ContactPickerValue> =
+    @Output() public valueChange: EventEmitter<ContactPickerValue> =
         new EventEmitter<ContactPickerValue>();
 
     /**
      * A set of fixed data to look through (instead of querying the url)
      * Array, matches on name property, case-insensitive
      */
-    @Input() set data(value: ContactPickerValue[]) {
+    @Input() public set data(value: ContactPickerValue[]) {
         this._data = value;
         // if the field hasn't been searching yet, secretly update its results list
         if (this.autocomplete && !this.autocomplete.searching) {
             this.resetSearchResults();
         }
     }
-    get data(): ContactPickerValue[] {
+
+    public get data(): ContactPickerValue[] {
         return this._data;
     }
 
     /** the results in the auto-complete list */
-    searchResults: ContactPickerValue[];
+    public searchResults: ContactPickerValue[];
     /** monitors changes in the query value to search for */
-    searchChange$: Observer<string>;
+    private searchChange$: Observer<string>;
     /** the autocomplete component */
-    @ViewChild(AutoCompleteComponent) autocomplete: AutoCompleteComponent;
+    @ViewChild(AutoCompleteComponent)
+    public autocomplete: AutoCompleteComponent;
+
+    /** used to implement ControlValueAccessor (see below) */
+    private propagateChange = (_: any) => {};
 
     constructor(
         private personPickerService: ContactPickerService,
@@ -82,7 +87,7 @@ export class ContactPickerComponent
         }
     }
 
-    ngOnInit() {
+    public ngOnInit() {
         this.resetSearchResults();
 
         // trigger an autocomplete search when the query string changes
@@ -98,23 +103,8 @@ export class ContactPickerComponent
             });
     }
 
-    onSearch(searchString: string) {
-        if (searchString.length >= this.minLength) {
-            this.searchChange$.next(searchString);
-        } else {
-            this.resetSearchResults();
-        }
-    }
-
-    onSelect(data: Event | ContactPickerValue) {
-        if (data instanceof Event) {
-            // do nothing: we don't respond to text selection events
-        } else {
-            this.writeValue(data as ContactPickerValue);
-        }
-    }
-
-    resetSearchResults() {
+    /** revert the search results to the current value of the control */
+    public resetSearchResults() {
         // if there are only a few static items to look through
         // show the possible results immediately on focus (without the user having to type)
         if (this.data && this.data.length && this.data.length <= 20) {
@@ -129,7 +119,23 @@ export class ContactPickerComponent
         }
     }
 
-    formatLabel(input: ContactPickerValue): string {
+    private onSearch(searchString: string) {
+        if (searchString.length >= this.minLength) {
+            this.searchChange$.next(searchString);
+        } else {
+            this.resetSearchResults();
+        }
+    }
+
+    private onSelect(data: Event | ContactPickerValue) {
+        if (data instanceof Event) {
+            // do nothing: we don't respond to text selection events
+        } else {
+            this.writeValue(data as ContactPickerValue);
+        }
+    }
+
+    private formatLabel(input: ContactPickerValue): string {
         const search = this.autocomplete.query;
         const inputString = input.name || input.id || '';
         const regEx = new RegExp(search, 'ig');
@@ -138,7 +144,7 @@ export class ContactPickerComponent
 
     // ControlValueAccessor interface
 
-    writeValue(value: ContactPickerValue|any) {
+    public writeValue(value: ContactPickerValue|any) {
         this.value = value as ContactPickerValue;
         this.valueChange.emit(this.value);
         if (this.propagateChange) {
@@ -147,12 +153,10 @@ export class ContactPickerComponent
         this.resetSearchResults();
     }
 
-    propagateChange = (_: any) => {};
-
-    registerOnChange(fn) {
+    public registerOnChange(fn) {
         this.propagateChange = fn;
     }
 
-    registerOnTouched() {}
+    public registerOnTouched() {}
 
 }
