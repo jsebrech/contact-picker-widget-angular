@@ -76,8 +76,14 @@ You must have a Digipolis account with access to Nexus.
 1. Increment the version in package.json
 2. Log in to the the private registry
 
-    `> npm login --registry=https://nexusrepo.antwerpen.be/repository/npm-private/`
+    ```sh
+    > npm login --registry=https://nexusrepo.antwerpen.be/repository/npm-private/
+    ```
 
 3. Publish the package
 
-    `> npm publish dist --registry=https://nexusrepo.antwerpen.be/repository/npm-private/`
+    ```sh
+    > npm run build
+    > cd dist
+    > npm publish --registry=https://nexusrepo.antwerpen.be/repository/npm-private/
+    ```

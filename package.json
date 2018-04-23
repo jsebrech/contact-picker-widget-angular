@@ -12,14 +12,12 @@
     "start": "ng serve --aot",
     "build": "npm run clean && ng-packagr -p ng-package.json",
     "build-ghpages": "ng build --base-href \"https://digipolisantwerp.github.io/contact-picker_widget_angular/\" --output-path \"dist-ghpages\"",
-    "clean": "rimraf dist",
+    "clean": "rimraf coverage",
     "test": "npm run lint && ng test --watch false --code-coverage",
     "test-watch": "ng test --code-coverage",
     "e2e": "ng e2e",
     "e2e-watch": "watch \"ng e2e -s false\" src e2e --wait=1",
-    "lint": "ng lint",
-    "prepublishOnly": "npm run build",
-    "publish": "npm publish dist"
+    "lint": "ng lint"
   },
   "repository": {
     "type": "git",
