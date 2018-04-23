@@ -6,7 +6,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/mergeMap';
 
 import { AutoCompleteComponent } from '@acpaas-ui/auto-complete';
-import { ContactPickerValue } from './contact-picker.value';
+import { ContactPickerValue } from './contact-picker.types';
 import { ContactPickerService } from './contact-picker.service';
 import withUniqueNames from './unique-names';
 

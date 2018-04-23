@@ -1,4 +1,4 @@
-import { ContactPickerValue } from './contact-picker.value';
+import { ContactPickerValue } from './contact-picker.types';
 
 /**
  * The auto-complete component does not support duplicate labels,

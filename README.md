@@ -86,7 +86,7 @@ The backing service implements the following protocol:
 
 - GET /path/to/endpoint?search=...
 - search = the text that the user typed on which to match
-- result = JSON-encoded array of [ContactPickerValue](src/contact-picker/contact-picker.value.ts) objects
+- result = JSON-encoded array of [ContactPickerValue](src/contact-picker/contact-picker.types.ts) objects
 
 ## Run the demo app
 
