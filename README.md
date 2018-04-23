@@ -13,8 +13,9 @@ There is a demo app, see below for instructions on running it.
 Copy the .npmrc file from this repo to your local repo to set up the link to nexusrepo.antwerpen.be npm repository.
 
 Then run:
-```
-$ npm install @acpaas-ui-widgets/ngx-contact-picker
+
+```sh
+> npm install @acpaas-ui-widgets/ngx-contact-picker
 ```
 
 ### Local mode
@@ -76,6 +77,7 @@ In this mode, the picker is backed by a remote service queried for results match
 ```
 
 Additional attributes:
+
 - **url**: the URL of the back-end service feeding this widget
 - **bufferInputMs**: how long to buffer keystrokes before fetching remote results
 
