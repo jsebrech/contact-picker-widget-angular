@@ -13,7 +13,7 @@ import withUniqueNames from './unique-names';
 @Component({
     selector: 'aui-contact-picker',
     templateUrl: './contact-picker.component.html',
-    styleUrls: ['./contact-picker.component.css']
+    styleUrls: ['./contact-picker.component.scss']
 })
 export class ContactPickerComponent
     // ControlValueAccessor as per

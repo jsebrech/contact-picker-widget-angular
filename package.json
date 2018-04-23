@@ -17,7 +17,8 @@
     "e2e": "ng e2e",
     "e2e-watch": "watch \"ng e2e -s false\" src e2e --wait=1",
     "lint": "ng lint",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "publish": "npm publish dist"
   },
   "repository": {
     "type": "git",
@@ -35,7 +36,6 @@
     "angular-cli",
     "ng-packagr"
   ],
-  "private": true,
   "peerDependencies": {
     "@angular/common": "^5.0.0",
     "@angular/core": "^5.0.0"
@@ -44,6 +44,7 @@
     "@acpaas-ui/auto-complete": "^4.0.0"
   },
   "devDependencies": {
+    "@a-ui/core": "^2.0.3",
     "@angular/animations": "^5.0.0",
     "@angular/cli": "1.7.3",
     "@angular/common": "^5.0.0",

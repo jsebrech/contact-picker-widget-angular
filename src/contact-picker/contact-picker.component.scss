@@ -1,6 +1,8 @@
+@import "~@a-ui/core/dist/assets/styles/quarks";
+
 .a-contact-picker__detail {
     float: right;
     font-size: 80%;
     padding-top: 0.2em;
-    color: rgb(125, 125, 125); /* $text-color-light from core branding */
+    color: $text-color-light;
 }
