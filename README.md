@@ -14,7 +14,7 @@ Copy the .npmrc file from this repo to your local repo to set up the link to nex
 
 Then run:
 ```
-$ npm install @acpaas-ui/contact-picker-widget-angular
+$ npm install @acpaas-ui-widgets/ngx-contact-picker
 ```
 
 ### Local mode
