@@ -22,7 +22,7 @@ Then install (you will need to be connected to the Digipolis network):
 
 In this mode, the data backing the picker is passed from the surrounding application code instead of fetched from a remote back-end.
 
-In your module:
+Import the component in your module:
 
 ```ts
 @NgModule({
@@ -32,6 +32,12 @@ In your module:
   ],
   ...
 })
+```
+
+In the index.html, include the core branding stylesheet:
+
+```html
+<link rel="stylesheet" href="https://cdn.antwerpen.be/core_branding_scss/2.0.1/main.min.css">
 ```
 
 In your template:
