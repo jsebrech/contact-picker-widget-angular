@@ -10,18 +10,29 @@ There is a demo app, see below for instructions on running it.
 
 ### Installing
 
-Copy the .npmrc file from this repo to your local repo to set up the link to npmrepo.antwerpen.be npm repository.
+Copy the .npmrc file from this repo to your local repo to set up the link to nexusrepo.antwerpen.be npm repository.
 
-Then install (you will need a Digipolis network account):
+Then install (you will need to be connected to the Digipolis network):
 
 ```sh
-> npm login --registry=https://npmrepo.antwerpen.be/repository/npm-private/
 > npm install @acpaas-ui-widgets/ngx-contact-picker
 ```
 
 ### Local mode
 
 In this mode, the data backing the picker is passed from the surrounding application code instead of fetched from a remote back-end.
+
+In your module:
+
+```ts
+@NgModule({
+  imports: [
+    ...,
+    ContactPickerModule
+  ],
+  ...
+})
+```
 
 In your template:
 
