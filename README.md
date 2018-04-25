@@ -107,7 +107,7 @@ The backing service implements the following protocol:
 
 ## Run the demo app
 
-Set up the .npmrc and log in (see above), then run:
+Set up the .npmrc (see above), then run:
 
 ```sh
 > npm install
