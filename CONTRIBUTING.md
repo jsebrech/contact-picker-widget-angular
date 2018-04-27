@@ -40,7 +40,7 @@ Commands:
 
   `> npm start`
 
-  To use the remote page you also need to start the [backing service](http://example.com/TODO).
+  To use the remote page you also need to start the [backing service](https://github.com/digipolisantwerp/contact-picker_service_nodejs).
 
 - Run the tests (continously)
 
