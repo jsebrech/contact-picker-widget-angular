@@ -5,7 +5,7 @@ import { Observer } from 'rxjs/Observer';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/mergeMap';
 
-import { AutoCompleteComponent } from '@acpaas-ui/auto-complete';
+import { AutoCompleteComponent } from '@acpaas-ui/ngx-components/forms';
 import { ContactPickerValue } from './contact-picker.types';
 import { ContactPickerService } from './contact-picker.service';
 import withUniqueNames from './unique-names';

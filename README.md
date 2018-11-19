@@ -1,6 +1,8 @@
 # Contact Picker Smart Widget UI (Angular)
 
-This is the Angular 5+ UI for a Smart Widget implementing a picker field to choose a person from a list of contacts. It is matched by a [corresponding back-end service](https://github.com/digipolisantwerp/contact-picker_service_nodejs) which is needed when running it in remote mode. A default implementation for selecting people from [CRS Medewerker](https://acpaas.digipolis.be/nl/product/crs-medewerker) is provided.
+This is the Angular 6+ UI for a Smart Widget implementing a picker field to choose a person from a list of contacts. It is matched by a [corresponding back-end service](https://github.com/digipolisantwerp/contact-picker_service_nodejs) which is needed when running it in remote mode. A default implementation for selecting people from [CRS Medewerker](https://acpaas.digipolis.be/nl/product/crs-medewerker) is provided.
+
+> If your project uses Angular 5, you can still install the older version of the widget and [take a look at its documentation here](https://github.com/digipolisantwerp/contact-picker_widget_angular/tree/v1-dev):
 
 ![screenshot](example.png)
 
@@ -9,10 +11,6 @@ There is a demo app, see below for instructions on running it.
 ## How to use
 
 ### Installing
-
-Copy the .npmrc file from this repo to your local repo to set up the link to nexusrepo.antwerpen.be npm repository.
-
-Then install (you will need to be connected to the Digipolis network):
 
 ```sh
 > npm install @acpaas-ui-widgets/ngx-contact-picker
@@ -37,7 +35,7 @@ Import the component in your module:
 In the index.html, include the core branding stylesheet:
 
 ```html
-<link rel="stylesheet" href="https://cdn.antwerpen.be/core_branding_scss/2.0.1/main.min.css">
+<link rel="stylesheet" href="https://cdn.antwerpen.be/core_branding_scss/3.0.3/main.min.css">
 ```
 
 In your template:
