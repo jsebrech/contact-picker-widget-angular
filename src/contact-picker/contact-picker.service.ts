@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { of as observableOf,  Observable } from 'rxjs';
+import {
+  of as observableOf,
+  Observable,
+} from 'rxjs';
 
 import { ContactPickerValue } from './contact-picker.types';
 

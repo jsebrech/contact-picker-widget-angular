@@ -1,7 +1,21 @@
-import { Input, Component, OnInit, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
+import {
+  Input,
+  Component,
+  OnInit,
+  EventEmitter,
+  Output,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
-import { Observable ,  Observer } from 'rxjs';
-import { debounceTime, mergeMap } from 'rxjs/operators';
+import {
+  Observable,
+  Observer,
+} from 'rxjs';
+import {
+  debounceTime,
+  mergeMap,
+} from 'rxjs/operators';
 
 import { AutoCompleteComponent } from '@acpaas-ui/ngx-components/forms';
 import { ContactPickerValue } from './contact-picker.types';
@@ -92,11 +106,15 @@ export class ContactPickerComponent
         Observable.create((observer) => {
             this.searchChange$ = observer;
         })
-            .pipe(debounceTime(this.bufferInputMs),
-            mergeMap((search) =>  this.personPickerService.getPeopleByQuery(this.data || this.url, search.toString())))
-            .subscribe((results) => {
-                this.searchResults = withUniqueNames(results);
-            });
+          .pipe(
+            debounceTime(this.bufferInputMs),
+            mergeMap((search) =>
+              this.personPickerService.getPeopleByQuery(this.data || this.url, search.toString())
+            )
+          )
+          .subscribe((results) => {
+            this.searchResults = withUniqueNames(results);
+          });
     }
 
     /** revert the search results to the current value of the control */

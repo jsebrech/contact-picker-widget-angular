@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file.
 "### Security" in case of vulnerabilities.
 -->
 
-## [2.0.0] - 2018-11-19
+## [2.0.0] - 2018-11-20
 
  ### Changed
 

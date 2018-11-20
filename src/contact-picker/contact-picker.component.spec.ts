@@ -1,7 +1,15 @@
-import { TestBed, ComponentFixture } from '@angular/core/testing';
+import {
+  TestBed,
+  ComponentFixture,
+} from '@angular/core/testing';
 import { ElementRef } from '@angular/core';
 
-import { ContactPickerComponent, ContactPickerService, ContactPickerValue, ContactPickerModule } from '..';
+import {
+  ContactPickerComponent,
+  ContactPickerService,
+  ContactPickerValue,
+  ContactPickerModule,
+} from '..';
 import { of as observableOf } from 'rxjs';
 
 describe('ContactPickerComponent', () => {
