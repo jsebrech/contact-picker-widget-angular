@@ -1,11 +1,23 @@
-import { Input, Component, OnInit, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
+import {
+  Input,
+  Component,
+  OnInit,
+  EventEmitter,
+  Output,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
-import { Observable } from 'rxjs/Observable';
-import { Observer } from 'rxjs/Observer';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/mergeMap';
+import {
+  Observable,
+  Observer,
+} from 'rxjs';
+import {
+  debounceTime,
+  mergeMap,
+} from 'rxjs/operators';
 
-import { AutoCompleteComponent } from '@acpaas-ui/auto-complete';
+import { AutoCompleteComponent } from '@acpaas-ui/ngx-components/forms';
 import { ContactPickerValue } from './contact-picker.types';
 import { ContactPickerService } from './contact-picker.service';
 import withUniqueNames from './unique-names';
@@ -94,13 +106,15 @@ export class ContactPickerComponent
         Observable.create((observer) => {
             this.searchChange$ = observer;
         })
-            .debounceTime(this.bufferInputMs)
-            .mergeMap((search) =>
-                this.personPickerService.getPeopleByQuery(this.data || this.url, search)
+          .pipe(
+            debounceTime(this.bufferInputMs),
+            mergeMap((search) =>
+              this.personPickerService.getPeopleByQuery(this.data || this.url, search.toString())
             )
-            .subscribe((results) => {
-                this.searchResults = withUniqueNames(results);
-            });
+          )
+          .subscribe((results) => {
+            this.searchResults = withUniqueNames(results);
+          });
     }
 
     /** revert the search results to the current value of the control */

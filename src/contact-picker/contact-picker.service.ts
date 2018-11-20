@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import {
+  of as observableOf,
+  Observable,
+} from 'rxjs';
 
 import { ContactPickerValue } from './contact-picker.types';
 
@@ -22,7 +24,7 @@ export class ContactPickerService {
         search: string
     ): Observable<ContactPickerValue[]> {
         if (Array.isArray(dataSource)) {
-            return Observable.of(dataSource.filter((v: ContactPickerValue) => {
+            return observableOf(dataSource.filter((v: ContactPickerValue) => {
                 const name = v.name.toLowerCase();
                 const matchOn = search.toLowerCase();
                 return name.indexOf(matchOn) >= 0;

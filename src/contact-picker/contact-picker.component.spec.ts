@@ -1,8 +1,16 @@
-import { TestBed, ComponentFixture } from '@angular/core/testing';
+import {
+  TestBed,
+  ComponentFixture,
+} from '@angular/core/testing';
 import { ElementRef } from '@angular/core';
 
-import { ContactPickerComponent, ContactPickerService, ContactPickerValue, ContactPickerModule } from '..';
-import { Observable } from 'rxjs/Observable';
+import {
+  ContactPickerComponent,
+  ContactPickerService,
+  ContactPickerValue,
+  ContactPickerModule,
+} from '..';
+import { of as observableOf } from 'rxjs';
 
 describe('ContactPickerComponent', () => {
 
@@ -13,7 +21,7 @@ describe('ContactPickerComponent', () => {
 
     class MockContactPickerService {
         getPeopleByQuery(dataSource: any, search: string) {
-            return Observable.of(testValues);
+            return observableOf(testValues);
         }
     }
 
