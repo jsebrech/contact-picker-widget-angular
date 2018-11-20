@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "contact-picker-widget-angular": {
+    "contact-picker_widget_angular": {
       "root": "",
       "sourceRoot": "example",
       "projectType": "application",
@@ -50,22 +50,22 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "contact-picker-widget-angular:build",
+            "browserTarget": "contact-picker_widget_angular:build",
             "port": 4200
           },
           "configurations": {
             "prod": {
-              "browserTarget": "contact-picker-widget-angular:build:prod"
+              "browserTarget": "contact-picker_widget_angular:build:prod"
             },
             "production": {
-              "browserTarget": "contact-picker-widget-angular:build:production"
+              "browserTarget": "contact-picker_widget_angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "contact-picker-widget-angular:build"
+            "browserTarget": "contact-picker_widget_angular:build"
           }
         },
         "test": {
@@ -99,7 +99,7 @@
         }
       }
     },
-    "contact-picker-widget-angular-e2e": {
+    "contact-picker_widget_angular-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -108,7 +108,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "contact-picker-widget-angular:serve"
+            "devServerTarget": "contact-picker_widget_angular:serve"
           }
         },
         "lint": {
@@ -123,7 +123,7 @@
       }
     }
   },
-  "defaultProject": "contact-picker-widget-angular",
+  "defaultProject": "contact-picker_widget_angular",
   "schematics": {
     "@schematics/angular:class": {
       "spec": false
