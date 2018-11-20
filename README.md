@@ -14,7 +14,7 @@ There is a demo app, see below for instructions on running it.
 > npm install @acpaas-ui-widgets/ngx-contact-picker
 ```
 
-#### Local mode
+### Local mode
 
 In this mode, the data backing the picker is passed from the surrounding application code instead of fetched from a remote back-end.
 
@@ -85,7 +85,7 @@ Every value in the backing list must have a unique id. If names can be the same 
 
 - **valueChange**: triggers when the current value is changed (or cleared)
 
-#### Remote mode
+### Remote mode
 
 In this mode, the picker is backed by a remote service queried for results matching what the user types.
 
