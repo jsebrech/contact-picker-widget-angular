@@ -36,7 +36,7 @@ In the index.html, include the core branding stylesheet:
 <link rel="stylesheet" href="https://cdn.antwerpen.be/core_branding_scss/3.0.3/main.min.css">
 ```
 
-> For projects that are still using Angular 5, we are [maintaining a v1 branch](https://github.com/digipolisantwerp/contact-picker_widget_angular/tree/v1-master), which will still receive bug fixes if needed.
+> For projects that are still using Angular 5, we are [maintaining a v1 branch](https://github.com/digipolisantwerp/contact-picker_widget_angular/tree/v1), which will still receive bug fixes if needed.
 
 ```sh
 > npm install @acpaas-ui-widgets/ngx-contact-picker@"<2.0.0"
