@@ -149,7 +149,7 @@ export class ContactPickerComponent
         }
     }
 
-    private formatLabel(input: ContactPickerValue): string {
+    public formatLabel(input: ContactPickerValue): string {
         const search = this.autocomplete.query;
         const inputString = input.name || input.id || '';
         const regEx = new RegExp(search, 'ig');
