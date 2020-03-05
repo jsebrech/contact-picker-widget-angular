@@ -1,27 +1,36 @@
-<div class="inner home-page">
-    <h2>Contact Picker</h2>
-    <h4>Remote Data</h4>
+<div class="u-margin-top u-margin-bottom-lg">
+  <label class="a-input__label" for="third-picker">Employee of the month</label>
+  <aui-contact-picker
+    data-id="third-picker"
+    placeholder="Choose an employee"
+    [(value)]="picker2"
+    differentiator="userName"
+    url="http://localhost:3000/api/medewerkers">
+  </aui-contact-picker>
+  <div class="a-input">
+    <small><code>/api/medewerkers</code></small>
+  </div>
+  <p class="u-margin-top"><strong>Current value:</strong><br>
+    <ng-container *ngIf="!picker2">-</ng-container>
+  </p>
+  <pre class="a-pre a-pre--scrollable" *ngIf="picker2"><code>{{ picker2 | json }}</code></pre>
+</div>
 
-    <p>/api/medewerkers</p>
-    <aui-contact-picker
-        placeholder="kies een medewerker"
-        [(value)]="picker2"
-        differentiator="userName"
-        url="http://localhost:3000/api/medewerkers">
-    </aui-contact-picker>
-    <div *ngIf="picker2">Current value: 
-        <pre>{{ picker2 | json }}</pre>
-    </div>
+<hr>
 
-    <br>
-
-    <p>/api/antwerpenaars</p>
-    <aui-contact-picker
-        placeholder="kies een antwerpenaar"
-        [(value)]="picker1"
-        url="http://localhost:3000/api/antwerpenaars">
-    </aui-contact-picker>
-    <div *ngIf="picker1">Current value: 
-        <pre>{{ picker1 | json }}</pre>
-    </div>
+<div class="u-margin-top-lg">
+  <label class="a-input__label" for="fourth-picker">Famous Antwerp citizens</label>
+  <aui-contact-picker
+    data-id="fourth-picker"
+    placeholder="Pick your favourite Antwerp citizen"
+    [(value)]="picker1"
+    url="http://localhost:3000/api/antwerpenaars">
+  </aui-contact-picker>
+  <div class="a-input">
+    <small><code>/api/antwerpenaars</code></small>
+  </div>
+  <p class="u-margin-top"><strong>Current value:</strong><br>
+    <ng-container *ngIf="!picker1">-</ng-container>
+  </p>
+  <pre class="a-pre a-pre--scrollable" *ngIf="picker1"><code>{{ picker1 | json }}</code></pre>
 </div>

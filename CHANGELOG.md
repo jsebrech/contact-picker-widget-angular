@@ -13,11 +13,17 @@ All notable changes to this project will be documented in this file.
 "### Security" in case of vulnerabilities.
 -->
 
+## [3.0.0] - 2020-03-05
+
+### Added
+
+- [BREAKING] Made the chatbot widget WCAG 2.1 AA compliant.
+
 ## [2.0.0] - 2018-11-22
 
- ### Changed
+### Changed
 
- - [BREAKING] Upgraded the widget to work with Angular 6+
+- [BREAKING] Upgraded the widget to work with Angular 6+
 
 ## [1.0.4] - 2018-06-19
 
@@ -39,7 +45,8 @@ All notable changes to this project will be documented in this file.
 
 - Initial release.
 
-[Unreleased]: https://github.com/digipolisantwerp/contact-picker_widget_angular/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/digipolisantwerp/contact-picker_widget_angular/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/digipolisantwerp/contact-picker_widget_angular/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/digipolisantwerp/contact-picker_widget_angular/compare/v1.0.4...v2.0.0
 [1.0.4]: https://github.com/digipolisantwerp/contact-picker_widget_angular/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/digipolisantwerp/contact-picker_widget_angular/compare/v1.0.2...v1.0.3

@@ -33,7 +33,7 @@ Import the component in your module:
 In the index.html, include the core branding stylesheet:
 
 ```html
-<link rel="stylesheet" href="https://cdn.antwerpen.be/core_branding_scss/3.0.3/main.min.css">
+<link rel="stylesheet" href="https://cdn.antwerpen.be/core_branding_scss/4.1.1/main.min.css">
 ```
 
 > For projects that are still using Angular 5, we are [maintaining a v1 branch](https://github.com/digipolisantwerp/contact-picker_widget_angular/tree/v1), which will still receive bug fixes if needed.
@@ -45,7 +45,9 @@ In the index.html, include the core branding stylesheet:
 ### In your template:
 
 ```html
+<label for="picker-1">Pick a person</label>
 <aui-contact-picker
+    data-id="picker-1"
     [data]="listOfPeople"
     [(value)]="person">
 </aui-contact-picker>
@@ -72,6 +74,7 @@ Every value in the backing list must have a unique id. If names can be the same 
 
 ### Supported attributes
 
+- **id**: Unique ID for the contact picker to guarantee WCAG 2.1 AA compliancy
 - **data**: An array of value objects to use as the backing store
 - **value**: The current value of the picker, represented as a value object
 - **placeholder**: specify the text to show in an empty field
@@ -90,7 +93,9 @@ Every value in the backing list must have a unique id. If names can be the same 
 In this mode, the picker is backed by a remote service queried for results matching what the user types.
 
 ```html
+<label for="picker-2">Pick a person</label>
 <aui-contact-picker
+    data-id="picker-2"
     [(value)]="person"
     url="/api/people">
 </aui-contact-picker>

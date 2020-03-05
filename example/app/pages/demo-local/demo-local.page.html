@@ -1,24 +1,33 @@
-<div class="inner home-page">
-    <h2>Contact Picker</h2>
-    <h4>Local Data</h4>
-    <p>Notable people from Antwerp 
-       (source: <a href="https://nl.wikipedia.org/wiki/Lijst_van_Antwerpenaars_(stad)">wikipedia</a>)
-    </p>
-    <p>
-        <aui-contact-picker #picker1cmp
-            placeholder="kies een antwerpenaar" 
-            [data]="listOfPeople1"
-            [(value)]="picker1">
-        </aui-contact-picker>
-        <button type="button" (click)="onPicker1BtnClick()">Focus</button>
-    </p>
-    <p *ngIf="picker1">Current value: {{ picker1?.name }}</p>
-    <br>
-    <p>Fictional characters</p>
-    <aui-contact-picker
-        placeholder="kies een personage"
-        [data]="listOfPeople2"
-        [(value)]="picker2">
-    </aui-contact-picker>
-    <p *ngIf="picker2">Current value: {{ picker2?.name }}</p>
+<div class="u-margin-top u-margin-bottom-lg">
+  <label class="a-input__label" for="first-picker">Notable people from Antwerp</label>
+  <aui-contact-picker #picker1cmp
+    data-id="first-picker"
+    placeholder="Choose an Antwerp citizen"
+    [data]="listOfPeople1"
+    [(value)]="picker1">
+  </aui-contact-picker>
+  <div class="a-input">
+    <small>(source: <a href="https://nl.wikipedia.org/wiki/Lijst_van_Antwerpenaars_(stad)">wikipedia</a>)</small>
+  </div>
+  <p class="u-margin-top"><strong>Current value:</strong><br>
+    <ng-container *ngIf="picker1">{{ picker1?.name }}</ng-container>
+    <ng-container *ngIf="!picker1">-</ng-container>
+  </p>
+  <p class="u-margin-top-xs"><button class="a-button-outline a-button--small" type="button" (click)="onPicker1BtnClick()">Test focus</button></p>
+</div>
+
+<hr>
+
+<div class="u-margin-top-lg">
+  <label class="a-input__label" for="second-picker">Fictional characters</label>
+  <aui-contact-picker
+    data-id="second-picker"
+    placeholder="Choose a persona"
+    [data]="listOfPeople2"
+    [(value)]="picker2">
+  </aui-contact-picker>
+  <p class="u-margin-top"><strong>Current value:</strong><br>
+    <ng-container *ngIf="picker2">{{ picker2?.name }}</ng-container>
+    <ng-container *ngIf="!picker2">-</ng-container>
+  </p>
 </div>
