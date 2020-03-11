@@ -1,13 +1,7 @@
-@import "~@a-ui/core/dist/assets/styles/quarks/_quarks.colors.scss";
-@import "~@a-ui/core/dist/assets/styles/quarks/_quarks.functions.scss";
-@import "~@a-ui/core/dist/assets/styles/quarks/_quarks.variables.scss";
+@import '~@a-ui/core/dist/assets/styles/_quarks.scss';
 
 :host ::ng-deep .m-selectable-list__item {
   align-items: baseline;
   display: flex;
   justify-content: space-between;
-}
-
-.m-contact-picker__detail {
-    margin: 0;
 }
