@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file.
 "### Security" in case of vulnerabilities.
 -->
 
-## [3.0.0] - 2020-03-05
+## [3.0.0] - 2020-03-11
 
 ### Added
 
