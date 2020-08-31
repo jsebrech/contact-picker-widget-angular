@@ -1,22 +1,17 @@
-import {
-  TestBed,
-  ComponentFixture,
-} from '@angular/core/testing';
-import { ElementRef } from '@angular/core';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {DebugElement, ElementRef} from '@angular/core';
 
-import {
-  ContactPickerComponent,
-  ContactPickerService,
-  ContactPickerValue,
-  ContactPickerModule,
-} from '..';
-import { of as observableOf } from 'rxjs';
+import {ContactPickerComponent, ContactPickerModule, ContactPickerService, ContactPickerValue} from '..';
+import {of as observableOf} from 'rxjs';
+import {By} from '@angular/platform-browser';
+import {AutoCompleteComponent} from '@acpaas-ui/ngx-forms';
 
 describe('ContactPickerComponent', () => {
 
   let fixture: ComponentFixture<ContactPickerComponent>;
   let comp: ContactPickerComponent;
   let element: any;
+  let debugElement: DebugElement;
   let testValues: ContactPickerValue[];
 
   class MockContactPickerService {
@@ -39,7 +34,7 @@ describe('ContactPickerComponent', () => {
     TestBed.configureTestingModule({
       imports: [ContactPickerModule],
       providers: [
-      { provide: ContactPickerService, useClass: MockContactPickerService }
+        {provide: ContactPickerService, useClass: MockContactPickerService}
       ]
     });
     provideTestValues(1);
@@ -47,6 +42,7 @@ describe('ContactPickerComponent', () => {
     comp = fixture.componentInstance;
     comp.bufferInputMs = 0;
     element = fixture.nativeElement;
+    debugElement = fixture.debugElement;
   });
 
   afterEach(() => {
@@ -73,7 +69,9 @@ describe('ContactPickerComponent', () => {
     comp.value = testValues[0];
     fixture.detectChanges();
     const input = element.querySelector('input[type=text]');
-    input.select = () => { done(); };
+    input.select = () => {
+      done();
+    };
     comp.focus();
   });
 
@@ -81,24 +79,32 @@ describe('ContactPickerComponent', () => {
     comp.minLength = 4;
     comp.ngOnInit();
     fixture.detectChanges();
+    // fixture.whenStable().then(() => {
     const spy = spyOn(comp, 'resetSearchResults');
-    const input = element.querySelector('input[type=text]');
-    input.value = 'foo';
-    input.dispatchEvent(new Event('input'));
+
+    const autocompleteComponent = debugElement.query(By.directive(AutoCompleteComponent));
+    const ac = autocompleteComponent.componentInstance;
+    ac.query = 'foo';
+    ac.doSearch();
+
     fixture.detectChanges();
     setTimeout(() => {
       expect(spy).toHaveBeenCalled();
       done();
     }, 10);
+    // });
   });
 
   it('should query values and display as unique', (done) => {
     provideTestValues(2);
     comp.ngOnInit();
     fixture.detectChanges();
-    const input = element.querySelector('input[type=text]');
-    input.value = 'test';
-    input.dispatchEvent(new Event('input'));
+
+    const autocompleteComponent = debugElement.query(By.directive(AutoCompleteComponent));
+    const ac = autocompleteComponent.componentInstance;
+    ac.query = 'test';
+    ac.doSearch();
+
     fixture.detectChanges();
     setTimeout(() => {
       expect(comp.searchResults).not.toBeNull();
@@ -119,5 +125,7 @@ describe('ContactPickerComponent', () => {
 });
 
 class MockElementRef extends ElementRef {
-  constructor() { super(null); }
+  constructor() {
+    super(null);
+  }
 }

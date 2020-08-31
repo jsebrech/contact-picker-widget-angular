@@ -17,7 +17,7 @@ import {
   mergeMap,
 } from 'rxjs/operators';
 
-import { AutoCompleteComponent } from '@acpaas-ui/ngx-components/forms';
+import { AutoCompleteComponent } from '@acpaas-ui/ngx-forms';
 import { ContactPickerValue } from './contact-picker.types';
 import { ContactPickerService } from './contact-picker.service';
 import withUniqueNames from './unique-names';
@@ -79,7 +79,7 @@ implements OnInit, ControlValueAccessor {
   /** monitors changes in the query value to search for */
   private searchChange$: Observer<string>;
   /** the autocomplete component */
-  @ViewChild(AutoCompleteComponent)
+  @ViewChild(AutoCompleteComponent, { static: true })
   public autocomplete: AutoCompleteComponent;
 
   /** used to implement ControlValueAccessor (see below) */
