@@ -12,7 +12,6 @@ All notable changes to this project will be documented in this file.
 "### Fixed" for any bug fixes.
 "### Security" in case of vulnerabilities.
 -->
-# [4.0.0] - 2020-09-01
 
 - [BREAKING] Upgraded the Angular version to 8 and the ACPaas UI library to version 4.
 
