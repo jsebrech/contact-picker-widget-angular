@@ -42,12 +42,11 @@
     "@acpaas-ui/ngx-forms": "^4.2.0",
     "@acpaas-ui/ngx-utils": "^4.2.1"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@a-ui/core": "~4.1.0",
     "@a-ui/flexboxgrid": "~1.0.1",
-    "@acpaas-ui/ngx-forms": "^4.2.0",
+    "@acpaas-ui/ngx-forms": "^4.2.2",
     "@acpaas-ui/ngx-utils": "^4.2.1",
     "@angular-devkit/build-angular": "~0.803.29",
     "@angular/animations": "8.2.14",
