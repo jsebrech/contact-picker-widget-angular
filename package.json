@@ -36,9 +36,9 @@
     "ng-packagr"
   ],
   "peerDependencies": {
-    "@angular/common": "^8.2.0",
-    "@angular/core": "^8.2.0",
-    "@angular/forms": "^8.2.0",
+    "@angular/common": "^8.0.0",
+    "@angular/core": "^8.0.0",
+    "@angular/forms": "^8.0.0",
     "@acpaas-ui/ngx-forms": "^4.2.2",
     "@acpaas-ui/ngx-utils": "^4.2.1"
   },
