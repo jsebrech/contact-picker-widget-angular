@@ -15,7 +15,7 @@ export class DemoLocalPage implements OnInit {
     picker2: ContactPickerValue;
 
     // picker 1 component
-    @ViewChild('picker1cmp') picker1Cmp: ContactPickerComponent;
+    @ViewChild('picker1cmp', { static: true }) picker1Cmp: ContactPickerComponent;
 
     listOfPeople1: ContactPickerValue[] = [];
 

@@ -39,7 +39,7 @@ describe('ContactPickerComponent', () => {
     TestBed.configureTestingModule({
       imports: [ContactPickerModule],
       providers: [
-      { provide: ContactPickerService, useClass: MockContactPickerService }
+        { provide: ContactPickerService, useClass: MockContactPickerService }
       ]
     });
     provideTestValues(1);
