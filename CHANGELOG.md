@@ -12,8 +12,11 @@ All notable changes to this project will be documented in this file.
 "### Fixed" for any bug fixes.
 "### Security" in case of vulnerabilities.
 -->
+## [4.0.1] - 2020-09-15
 
-- Added UserPrincipalName to the ContactPickerValue model
+### Added
+
+- UserPrincipalName to the ContactPickerValue model
 
 ## [4.0.0] - 2020-09-01
 
