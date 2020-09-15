@@ -13,6 +13,10 @@ All notable changes to this project will be documented in this file.
 "### Security" in case of vulnerabilities.
 -->
 
+- Added UserPrincipalName to the ContactPickerValue model
+
+## [4.0.0] - 2020-09-01
+
 - [BREAKING] Upgraded the Angular version to 8 and the ACPaas UI library to version 4.
 
 ## [3.0.0] - 2020-03-11
