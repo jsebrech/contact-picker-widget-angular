@@ -11,6 +11,8 @@ export interface ContactPickerValue {
   email?: string;
   /** publicly known user identifier */
   userName?: string;
+  /** User principal name */
+  userPrincipalName?: string;
   /** authentication domain for this user */
   domain?: string;
   /** URL to a picture representing this user */
