@@ -43,7 +43,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@a-ui/core": "~5.0.0",
+    "@a-ui/core": "^5.0.1",
     "@a-ui/flexboxgrid": "~2.0.0",
     "@acpaas-ui/ngx-forms": "^5.0.1",
     "@angular-devkit/build-angular": "~0.803.29",
